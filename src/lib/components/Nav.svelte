@@ -2,9 +2,9 @@
 	import {
 		faHouse,
 		faKey,
+		faListCheck,
 		faLock,
 		faSection,
-		faTh,
 		faUser,
 		type IconDefinition
 	} from '@fortawesome/free-solid-svg-icons';
@@ -29,9 +29,9 @@
 			secured: false
 		},
 		{
-			path: '/dashboard',
-			icon: faTh,
-			name: 'Dashboard',
+			path: '/todos',
+			icon: faListCheck,
+			name: 'Todos',
 			secured: true
 		},
 		{
