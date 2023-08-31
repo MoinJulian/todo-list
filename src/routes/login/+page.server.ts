@@ -19,7 +19,7 @@ export const actions: Actions = {
       event.cookies.set("email", user.email, cookie_options);
       event.cookies.set("name", user.name, cookie_options);
 
-      throw redirect(308, "/dashboard");
+      throw redirect(308, "/todos");
       return { email, user };
     }
   },
