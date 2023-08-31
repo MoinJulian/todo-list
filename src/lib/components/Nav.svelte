@@ -64,7 +64,7 @@
 <nav>
 	<ul>
 		{#each links as { path, icon, secured, name }}
-			{#if path == '/' || path == '/imprint' || path == '/faq' || secured === logged_in}
+			{#if path == '/' || path == '/imprint' || secured === logged_in}
 				<li
 					class:current={$page.url.pathname === path || $page.url.pathname.startsWith(path + '/')}
 				>
@@ -75,7 +75,6 @@
 				</li>
 			{/if}
 		{/each}
-
 		<li>
 			<ThemeToggler />
 		</li>
