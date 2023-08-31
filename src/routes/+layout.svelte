@@ -3,8 +3,8 @@
 	import Nav from '$lib/components/Nav.svelte';
 	import ScrollUp from '$lib/components/ScrollUp.svelte';
 	import '$lib/css/app.css';
-	// import type { LayoutData } from './$types';
-	// export let data: LayoutData;
+	import type { LayoutData } from './$types';
+	export let data: LayoutData;
 </script>
 
 <svelte:head>
@@ -14,8 +14,7 @@
 <LoadProgress />
 <ScrollUp />
 
-<Nav />
-<!-- <Nav logged_in={!!data.name && !!data.email} /> -->
+<Nav logged_in={!!data.name && !!data.email} />
 
 <main>
 	<slot />
