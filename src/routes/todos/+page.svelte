@@ -1,7 +1,22 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import type { ActionData } from './$types.js';
 
 	export let data;
+	export let form: ActionData;
+	let showMessage = true;
+
+	setTimeout(() => {
+		showMessage = false;
+	}, 20000);
+
+	function toggleTodoDone(todoId: string) {
+		const todo = data.todos && data.todos.find((t) => t.id === todoId);
+		if (todo) {
+			todo.isDone = !todo.isDone;
+			data.todos = data.todos; // Trigger a reactivity update
+		}
+	}
 </script>
 
 <svelte:head>
@@ -11,17 +26,36 @@
 <h1>ToDo Dashboard</h1>
 <h2>Welcome {data.name}</h2>
 
-<p>Create an Todo and add it to your account to access it anywhere</p>
+<p>Create a Todo and add it to your account to access it anywhere</p>
 
-<form method="POST" use:enhance>
+<form action="?/add_todo" method="POST" use:enhance>
 	<input type="text" placeholder="Add a Todo" name="todo" />
 	<button>Submit Todo</button>
 </form>
 
 {#if data.todos && data.todos.length > 0}
-	{#each data.todos as todo}
+	<form action="?/delete_all" method="POST" use:enhance>
+		<button>Delete All</button>
+	</form>
+	{#if showMessage == true && form?.message}
+		<p class="success">{form?.message}</p>
+	{/if}
+	{#if showMessage == true && form?.error}
+		<p class="error">{form?.error}</p>
+	{/if}
+{/if}
+{#if data.todos && data.todos.length > 0}
+	{#each data.todos as todo (todo.id)}
 		<div>
-			<p>{todo.todo}</p>
+			<p class:done={todo.isDone}>{todo.todo}</p>
+			<form action="?/toggle_todo" method="POST" use:enhance>
+				<input type="text" class="hidden" name="id" value={todo.id} />
+				<button on:click={() => toggleTodoDone(todo.id)}>Toggle</button>
+			</form>
+			<form action="?/delete_todo" method="POST" use:enhance>
+				<input type="text" class="hidden" name="id" value={todo.id} />
+				<button>Delete Todo</button>
+			</form>
 		</div>
 	{/each}
 {:else}
@@ -37,9 +71,7 @@
 		border: 3px solid var(--border-color);
 		margin-right: auto;
 		margin-bottom: 20px;
-		// button {
-		// 	margin: 10px 0px;
-		// }
+
 		p {
 			border: 3px solid var(--border-color);
 			max-width: max-content;
@@ -47,8 +79,12 @@
 			overflow-wrap: break-word; /* Erzwingt Wortumbrüche */
 		}
 
-		// .hidden {
-		// 	display: none;
-		// }
+		.done {
+			text-decoration: line-through;
+		}
+
+		.hidden {
+			display: none;
+		}
 	}
 </style>
