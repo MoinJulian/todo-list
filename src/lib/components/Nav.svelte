@@ -1,13 +1,11 @@
 <script lang="ts">
 	import {
 		faHouse,
-		// faKey,
-		// faLock,
-		faPlaneUp,
-		faQuestionCircle,
-		// faSection,
-		// faTh,
-		// faUser,
+		faKey,
+		faLock,
+		faSection,
+		faTh,
+		faUser,
 		type IconDefinition
 	} from '@fortawesome/free-solid-svg-icons';
 	import ThemeToggler from './ThemeToggler.svelte';
@@ -29,37 +27,37 @@
 			icon: faHouse,
 			name: 'Home',
 			secured: false
+		},
+		{
+			path: '/dashboard',
+			icon: faTh,
+			name: 'Dashboard',
+			secured: true
+		},
+		{
+			path: '/account',
+			icon: faUser,
+			name: 'Account',
+			secured: true
+		},
+		{
+			path: '/register',
+			icon: faLock,
+			name: 'Register',
+			secured: false
+		},
+		{
+			path: '/login',
+			icon: faKey,
+			name: 'Login',
+			secured: false
+		},
+		{
+			path: '/imprint',
+			icon: faSection,
+			name: 'Imprint',
+			secured: false
 		}
-		// {
-		// 	path: '/dashboard',
-		// 	icon: faTh,
-		// 	name: 'Dashboard',
-		// 	secured: true
-		// },
-		// {
-		// 	path: '/account',
-		// 	icon: faUser,
-		// 	name: 'Account',
-		// 	secured: true
-		// },
-		// {
-		// 	path: '/register',
-		// 	icon: faLock,
-		// 	name: 'Register',
-		// 	secured: false
-		// },
-		// {
-		// 	path: '/login',
-		// 	icon: faKey,
-		// 	name: 'Login',
-		// 	secured: false
-		// },
-		// {
-		// 	path: '/imprint',
-		// 	icon: faSection,
-		// 	name: 'Imprint',
-		// 	secured: false
-		// }
 	];
 </script>
 
