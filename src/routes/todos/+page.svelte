@@ -48,14 +48,16 @@
 	{#each data.todos as todo (todo.id)}
 		<div>
 			<p class:done={todo.isDone}>{todo.todo}</p>
-			<form action="?/toggle_todo" method="POST" use:enhance>
-				<input type="text" class="hidden" name="id" value={todo.id} />
-				<button on:click={() => toggleTodoDone(todo.id)}>Toggle</button>
-			</form>
-			<form action="?/delete_todo" method="POST" use:enhance>
-				<input type="text" class="hidden" name="id" value={todo.id} />
-				<button>Delete Todo</button>
-			</form>
+			<div class="button-container">
+				<form action="?/toggle_todo" method="POST" use:enhance>
+					<input type="text" class="hidden" name="id" value={todo.id} />
+					<button on:click={() => toggleTodoDone(todo.id)}>Toggle</button>
+				</form>
+				<form action="?/delete_todo" method="POST" use:enhance>
+					<input type="text" class="hidden" name="id" value={todo.id} />
+					<button>Delete Todo</button>
+				</form>
+			</div>
 		</div>
 	{/each}
 {:else}
@@ -71,12 +73,14 @@
 		border: 3px solid var(--border-color);
 		margin-right: auto;
 		margin-bottom: 20px;
+		display: flex;
+		justify-content: space-between;
 
 		p {
 			border: 3px solid var(--border-color);
 			max-width: max-content;
 			margin: 0 auto;
-			overflow-wrap: break-word; /* Erzwingt Wortumbrüche */
+			overflow-wrap: break-word;
 		}
 
 		.done {
@@ -85,6 +89,11 @@
 
 		.hidden {
 			display: none;
+		}
+
+		.button-container {
+			display: flex;
+			gap: 10px;
 		}
 	}
 </style>
