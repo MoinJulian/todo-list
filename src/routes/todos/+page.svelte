@@ -51,11 +51,11 @@
 			<div class="button-container">
 				<form action="?/toggle_todo" method="POST" use:enhance>
 					<input type="text" class="hidden" name="id" value={todo.id} />
-					<button on:click={() => toggleTodoDone(todo.id)}>Toggle</button>
+					<button class="toggle-button" on:click={() => toggleTodoDone(todo.id)}>Toggle</button>
 				</form>
 				<form action="?/delete_todo" method="POST" use:enhance>
 					<input type="text" class="hidden" name="id" value={todo.id} />
-					<button>Delete Todo</button>
+					<button class="delete-button">Delete Todo</button>
 				</form>
 			</div>
 		</div>
@@ -74,7 +74,7 @@
 		margin-right: auto;
 		margin-bottom: 20px;
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column; /* Keep the todo as a block */
 
 		p {
 			border: 3px solid var(--border-color);
@@ -93,7 +93,8 @@
 
 		.button-container {
 			display: flex;
-			gap: 10px;
+			gap: 10px; /* Adjust the gap as needed */
+			align-items: center; /* Center buttons vertically */
 		}
 	}
 </style>
