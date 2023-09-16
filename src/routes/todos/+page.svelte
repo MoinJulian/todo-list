@@ -73,8 +73,11 @@
 		border: 3px solid var(--border-color);
 		margin-right: auto;
 		margin-bottom: 20px;
-		display: flex;
-		flex-direction: column; /* Keep the todo as a block */
+
+		.button-container {
+			display: flex;
+			flex-direction: row;
+		}
 
 		p {
 			border: 3px solid var(--border-color);
