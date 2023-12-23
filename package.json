@@ -12,8 +12,9 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.1.1",
+		"@sveltejs/adapter-auto": "^3.0.1",
 		"@sveltejs/kit": "^2.0.6",
+		"@sveltejs/vite-plugin-svelte": "^3.0.1",
 		"@types/uuid": "^9.0.7",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
@@ -22,7 +23,7 @@
 		"svelte-fa": "^3.0.4",
 		"tslib": "^2.4.1",
 		"typescript": "^5.3.3",
-		"vite": "^4.5.1"
+		"vite": "^5.0.0"
 	},
 	"type": "module",
 	"dependencies": {
