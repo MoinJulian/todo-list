@@ -23,7 +23,7 @@
 		"svelte-fa": "^4.0.2",
 		"tslib": "^2.4.1",
 		"typescript": "^5.4.3",
-		"vite": "^5.2.6"
+		"vite": "^5.2.7"
 	},
 	"type": "module",
 	"dependencies": {
