@@ -33,7 +33,7 @@
 		"@types/jsonwebtoken": "^9.0.6",
 		"bcrypt": "^5.1.1",
 		"jsonwebtoken": "^9.0.2",
-		"mongoose": "^8.4.1",
+		"mongoose": "^8.4.3",
 		"sass": "^1.77.5",
 		"uuid": "^9.0.1"
 	}
